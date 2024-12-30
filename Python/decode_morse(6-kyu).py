@@ -10,3 +10,18 @@ def decode_morse(morse_code):
 # or 
 """ def decodeMorse(morseCode):
     return ' '.join(''.join(MORSE_CODE[letter] for letter in word.split(' ')) for word in morseCode.strip().split('   ')) """
+
+# or 
+""" def decodeMorse(morseCode):
+
+    morseCode = morseCode.strip().replace("   ", " * ")
+
+    msg = ""
+    
+    for x in morseCode.split():
+        if x != "*":
+            msg += MORSE_CODE[x]
+        else:
+            msg += " "
+    
+    return msg """
