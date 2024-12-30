@@ -6,3 +6,7 @@ def decode_morse(morse_code):
         decoded_word = ''.join(MORSE_CODE[char] for char in word.split())
         decoded_words.append(decoded_word)
     return ' '.join(decoded_words)
+
+# or 
+""" def decodeMorse(morseCode):
+    return ' '.join(''.join(MORSE_CODE[letter] for letter in word.split(' ')) for word in morseCode.strip().split('   ')) """
