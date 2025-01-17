@@ -10,4 +10,3 @@ public static class Kata
         return int.Parse(string.Concat(num.ToString().OrderByDescending(c => c)));
     }
 }
- 
