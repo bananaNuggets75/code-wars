@@ -7,3 +7,8 @@ def to_camel_case(text):
 # or 
 """ def to_camel_case(text):
     return text[:1] + text.title()[1:].replace('_', '').replace('-', '') """
+
+# or 
+""" import re
+def to_camel_case(text):
+    return re.sub('[_-](.)', lambda x: x.group(1).upper(), text) """
