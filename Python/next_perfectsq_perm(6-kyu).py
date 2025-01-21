@@ -75,3 +75,15 @@ def next_perfectsq_perm(lower_limit, k):
         root += 1 """
 
 
+# or 
+""" import itertools
+def next_perfectsq_perm(lower_limit, k):
+    n = lower_limit + 1
+    while True:
+        if '0' not in str(n) and int(n**.5)**2 == n:
+            r = [q for q in set(int(''.join(v)) for v in itertools.permutations(str(n))) if int(q**.5)**2 == q]
+            if len(r) == k:
+                return sorted(r)[-1]
+
+        n += 1 """
+
