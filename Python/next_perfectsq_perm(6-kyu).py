@@ -87,3 +87,25 @@ def next_perfectsq_perm(lower_limit, k):
 
         n += 1 """
 
+# or 
+""" from bisect import bisect
+from collections import defaultdict
+from math import isqrt, prod
+
+MAX = 10 ** 7
+
+DPM   = {'6':2,'4':3,'1':5,'2':7,'9':11,'5':13,'8':17,'3':19,'7':23}  # Digit Prime Map
+def hash_(n: int) -> int: return prod(DPM[d] for d in str(n))         # hash_(123) == hash_(231)
+
+SQP = defaultdict(list)  # Square Permutations
+for i in range(isqrt(MAX) + 1):
+    square = i * i
+    if '0' not in str(square): SQP[hash_(square)].append(square)
+KSQ = defaultdict(list)  # K-Squares
+for squares in SQP.values(): KSQ[len(squares)].extend(squares)
+for squares in KSQ.values(): squares.sort()
+
+def next_perfectsq_perm(lower_bound: int, k: int) -> int:
+    k_squares = KSQ[k]
+    k_square  = k_squares[bisect(k_squares, lower_bound)]
+    return SQP[hash_(k_square)][-1] """
