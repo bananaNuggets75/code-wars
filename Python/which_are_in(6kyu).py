@@ -21,3 +21,13 @@ Beware: In some languages r must be without duplicates."""
 
 def in_array(array1, array2):
     return sorted(set([sub for sub in array1 if any(sub in s for s in array2)]))
+
+"""def in_array(array1, array2):
+    # your code
+    res = []
+    for a1 in array1:
+        for a2 in array2:
+            if a1 in a2 and not a1 in res:
+                res.append(a1)
+    res.sort()
+    return res"""
