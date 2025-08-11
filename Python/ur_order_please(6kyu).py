@@ -19,3 +19,7 @@ def order(sentence):
     sorted_words = sorted(words, key=lambda w: int(''.join(filter(str.isdigit, w))))
     
     return ' '.join(sorted_words)
+
+
+""" def order(words):
+  return ' '.join(sorted(words.split(), key=lambda w:sorted(w))) """
