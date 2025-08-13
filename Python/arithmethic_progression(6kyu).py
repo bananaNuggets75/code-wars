@@ -12,3 +12,14 @@ def find_missing(sequence):
     n = len(sequence) + 1
     expected_sum = n * (sequence[0] + sequence[-1]) / 2
     return expected_sum - sum(sequence)
+
+
+""" def find_missing(sequence):
+    t = sequence
+    return (t[0] + t[-1]) * (len(t) + 1) / 2 - sum(t)
+
+def find_missing(sequence):
+    interval = (sequence[-1] - sequence[0])/len(sequence)
+    for previous, item in enumerate(sequence[1:]):
+        if item - sequence[previous] != interval:
+            return item - interval """
