@@ -32,3 +32,22 @@ def solve(s):
             max_sum = max(max_sum, current_sum)
     
     return max_sum
+
+
+""" import re
+
+def solve(s):
+    return max(sum(ord(c)-96 for c in subs) for subs in re.split('[aeiou]+', s))
+
+def solve(s):
+    alphabet = "-abcdefghijklmnopqrstuvwxyz"
+    for vowel in "aeiou":
+        s = s.replace(vowel, " ")
+    values = []
+    for item in s.split():
+        sum = 0
+        for letter in item:
+            sum += alphabet.index(letter)
+        values.append(sum)        
+    return max(values) """
+                
