@@ -18,3 +18,7 @@ def sort_array(source_array):
         else:
             result.append(num)
     return result
+
+
+# one liner LOL
+"def sort_array(a): return [next(it) if x % 2 else x for it in [iter(sorted([n for n in a if n % 2]))] for x in a]"
