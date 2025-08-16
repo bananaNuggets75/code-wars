@@ -75,3 +75,42 @@ def decode_morse(morseCode):
         decoded_words.append(''.join(decoded_chars))
     
     return ' '.join(decoded_words)
+
+
+""" def decodeBits(bits):
+    import re
+    
+    # remove trailing and leading 0's
+    bits = bits.strip('0')
+    
+    # find the least amount of occurrences of either a 0 or 1, and that is the time hop
+    time_unit = min(len(m) for m in re.findall(r'1+|0+', bits))
+    
+    # hop through the bits and translate to morse
+    return bits[::time_unit].replace('111', '-').replace('1','.').replace('0000000','   ').replace('000',' ').replace('0','')
+
+def decodeMorse(morseCode):
+    return ' '.join(''.join(MORSE_CODE[l] for l in w.split()) for w in morseCode.split('   '))
+
+# add dictionary entry for space
+MORSE_CODE['_'] = ' '
+
+def decodeBits(bits):
+    # strip extra zeros
+    bits = bits.strip('0')
+    
+    # if no zeros in bits
+    if '0' not in bits:
+        return '.'
+    
+    # check for multiple bits per dot
+    minOnes = min(len(s) for s in bits.split('0') if s)
+    minZeros = min(len(s) for s in bits.split('1') if s)
+    m = min(minOnes, minZeros)
+    
+    # decode bits to morse code
+    return bits.replace('111'*m, '-').replace('0000000'*m, ' _ ').replace('000'*m, ' ').replace('1'*m, '.').replace('0'*m, '')
+
+def decodeMorse(morseCode):
+    # decode morse code to letters
+    return ''.join(MORSE_CODE[c] for c in morseCode.split()) """
