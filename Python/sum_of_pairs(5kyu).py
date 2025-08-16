@@ -36,3 +36,17 @@ def sum_pairs(ints, s):
             return [s - x, x]
         seen.add(x)
     return None
+
+
+""" def sum_pairs(lst, s):
+    cache = set()
+    for i in lst:
+        if s - i in cache:
+            return [s - i, i]
+        cache.add(i)
+
+def sum_pairs(ints, s):
+    d = set()
+    for n in ints:
+        if n in d: return [s - n, n]
+        d.add(s - n) """
