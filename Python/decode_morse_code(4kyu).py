@@ -114,3 +114,44 @@ def decodeBits(bits):
 def decodeMorse(morseCode):
     # decode morse code to letters
     return ''.join(MORSE_CODE[c] for c in morseCode.split()) """
+
+from re import findall
+
+MORSE_CODE = {
+    '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F',
+    '--.': 'G', '....': 'H', '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L',
+    '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P', '--.-': 'Q', '.-.': 'R',
+    '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X',
+    '-.--': 'Y', '--..': 'Z',
+    '-----': '0', '.----': '1', '..---': '2', '...--': '3', '....-': '4',
+    '.....': '5', '-....': '6', '--...': '7', '---..': '8', '----.': '9',
+    '.-.-.-': '.', '--..--': ',', '..--..': '?', '.----.': "'", '-.-.--': '!',
+    '-..-.': '/', '-.--.': '(', '-.--.-': ')', '.-...': '&', '---...': ':',
+    '-.-.-.': ';', '-...-': '=', '.-.-.': '+', '-....-': '-', '..--.-': '_',
+    '.-..-.': '"', '...-..-': '$', '.--.-.': '@', '...---...': 'SOS'
+}
+MORSE_CODE["_"] = " "
+
+""" def decodeBits(bitString):
+    bitString = bitString.strip("0")
+    m = len(sorted(findall( "(1+|0+)", bitString ), key=len)[0])
+    return bitString.replace('111'*m, '-').replace('000'*m, ' ').replace('1'*m, '.').replace('0'*m, '')
+
+def decodeMorse(morseCode):
+    print(morseCode)
+    return "".join(map(lambda m: MORSE_CODE.get(m," "), morseCode.replace("   "," _ " ).split(" "))).strip()
+
+def decodeBits(bits):
+    bits = bits.strip('0')
+    time_unit = min(map(len, bits.replace('1', ' ').split() + bits.replace('0', ' ').split()))
+    word_sep = '0' * 7 * time_unit
+    char_sep = '0' * 3 * time_unit
+    ones_sep = '0' * 1 * time_unit
+    dash = '1' * 3 * time_unit
+    dot = '1' * 1 * time_unit
+    return bits.replace(dash, '-').replace(dot, '.') \
+               .replace(word_sep, '   ').replace(char_sep, ' ').replace(ones_sep, '')
+
+def decodeMorse(morse_code):
+    return ' '.join(''.join(map(MORSE_CODE.get, word.split()))
+                    for word in morse_code.split('   ')).strip() """
